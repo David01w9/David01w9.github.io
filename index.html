@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portafolio Personal - Desarrollador</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  :root {
+    --blue-light: #cfe3fc;
+    --blue-main: #1e3a8a;
+    --blue-dark: #0f1e57;
+    --blue-accent: #3b82f6;
+    --white: #ffffff;
+    --gray-light: #f5f7fa;
+    --gray-dark: #4b5563;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--gray-light);
+    color: var(--blue-dark);
+    line-height: 1.6;
+  }
+
+  header {
+    background-color: var(--blue-main);
+    color: var(--white);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: border-color 0.3s ease;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    border-bottom: 3px solid var(--blue-accent);
+    outline: none;
+  }
+
+  nav svg {
+    fill: var(--white);
+    width: 20px;
+    height: 20px;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--blue-light);
+  }
+
+  h1, h2 {
+    color: var(--blue-main);
+  }
+
+  /* Inicio (Hero) */
+  #inicio {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-accent));
+    color: var(--white);
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  #inicio h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+  #inicio p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+
+  #inicio img {
+    max-width: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 0 15px rgba(255 255 255 / 0.4);
+  }
+
+  /* Proyectos */
+  #proyectos ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+  }
+
+  #proyectos li {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(30,58,138,0.15);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  #proyectos li:hover {
+    box-shadow: 0 5px 16px rgba(30,58,138,0.3);
+  }
+  #proyectos li img {
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  #proyectos li h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--blue-dark);
+  }
+  #proyectos li p {
+    margin: 0;
+    color: var(--gray-dark);
+    font-size: 0.95rem;
+  }
+
+  /* Experiencia Académica y Personal */
+  #experiencia-academica ul,
+  #experiencia-personal ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #experiencia-academica li,
+  #experiencia-personal li {
+    background-color: var(--white);
+    margin-bottom: 1.3rem;
+    padding: 1rem 1.3rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 7px rgba(30,58,138,0.15);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #experiencia-academica li:hover,
+  #experiencia-personal li:hover {
+    box-shadow: 0 4px 13px rgba(30,58,138,0.25);
+  }
+
+  #experiencia-academica li svg,
+  #experiencia-personal li svg {
+    fill: var(--blue-accent);
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+
+  #experiencia-academica li div,
+  #experiencia-personal li div {
+    flex: 1;
+  }
+
+  #experiencia-academica li h4,
+  #experiencia-personal li h4 {
+    margin: 0 0 0.3rem 0;
+    color: var(--blue-dark);
+  }
+
+  #experiencia-academica li p, 
+  #experiencia-personal li p {
+    margin: 0;
+    color: var(--gray-dark);
+    font-size: 0.95rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--blue-dark);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#inicio" aria-label="Ir a Inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9 9 9h-3v9h-12v-9h-3z"/></svg>
+        Inicio
+      </a>
+      <a href="#proyectos" aria-label="Ir a Proyectos">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2h-18v-2zm0 7h14v2h-14v-2zm0 7h10v2h-10v-2z"/></svg>
+        Proyectos
+      </a>
+      <a href="#experiencia-academica" aria-label="Ir a Experiencia Académica">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v12l-7 4-7-4v-12l7-4zm0 2.18l-5 2.86v9.92l5 2.86 5-2.86v-9.92l-5-2.86z"/></svg>
+        Experiencia Académica
+      </a>
+      <a href="#experiencia-personal" aria-label="Ir a Experiencia Personal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Experiencia Personal
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section id="inicio" tabindex="0" aria-label="Sección de inicio">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80" alt="Foto personal" />
+      <h1>Hola, soy [Tu Nombre]</h1>
+      <p>Desarrollador apasionado especializado en tecnologías web modernas. Aquí encontrarás mis proyectos destacados, experiencia académica y profesional.</p>
+    </section>
+
+    <section id="proyectos" aria-label="Proyectos destacados">
+      <h2>Proyectos</h2>
+      <ul>
+        <li>
+          <img src="https://images.unsplash.com/photo-1523475496153-3ee8aa64a18d?auto=format&fit=crop&w=400&q=80" alt="Proyecto 1 imagen" />
+          <h3>Proyecto 1 - Dashboard Interactivo</h3>
+          <p>Desarrollé un dashboard responsivo usando React y D3.js que visualiza datos en tiempo real para ayudar a la toma de decisiones.</p>
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Proyecto 2 imagen" />
+          <h3>Proyecto 2 - App Móvil</h3>
+          <p>Una app móvil híbrida creada con Flutter que facilita la gestión de tareas y productividad personal de manera eficiente.</p>
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Proyecto 3 imagen" />
+          <h3>Proyecto 3 - Tienda Online</h3>
+          <p>Implementación de un ecommerce con backend RESTful y frontend en Vue.js, con enfoque en experiencia de usuario y seguridad.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experiencia-academica" aria-label="Experiencia académica">
+      <h2>Experiencia Académica</h2>
+      <ul>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v12l-7 4-7-4v-12l7-4zm0 2.18l-5 2.86v9.92l5 2.86 5-2.86v-9.92l-5-2.86z"/></svg>
+          <div>
+            <h4>Licenciatura en Ciencias de la Computación - Universidad XYZ</h4>
+            <p>2017 - 2021. Formación integral en desarrollo software, estructuras de datos, algoritmos, bases de datos y más.</p>
+          </div>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 4v12l-7 4-7-4v-12l7-4zm0 2.18l-5 2.86v9.92l5 2.86 5-2.86v-9.92l-5-2.86z"/></svg>
+          <div>
+            <h4>Curso Avanzado de Desarrollo Web - Plataforma ABC</h4>
+            <p>2022. Certificación en tecnologías frontend y backend modernas, con énfasis en mejores prácticas y rendimiento.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experiencia-personal" aria-label="Experiencia profesional">
+      <h2>Experiencia Personal</h2>
+      <ul>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <div>
+            <h4>Desarrollador Frontend - Empresa ABC</h4>
+            <p>2021 - Presente. Construyendo interfaces web modernas, accesibles y responsivas con React y Vue.</p>
+          </div>
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <div>
+            <h4>Prácticas Desarrollador Junior - Startup XYZ</h4>
+            <p>2020 - 2021. Apoyo en desarrollo de aplicaciones web, testing y mejoras en UX/UI.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 [Juan David]. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
+
+
